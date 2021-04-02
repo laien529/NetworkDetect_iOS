@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C8405794-8F91-4846-B7E4-1ECF54152C99"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "132B20DB-09C9-48AE-898A-601C560FF2AA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NetworkDetect/Detector/DetectorPolicy.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-startDetectTrigger"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "132B20DB-09C9-48AE-898A-601C560FF2AA - 57e2951c111215df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DetectorPolicy startDetectTrigger]"
+                  moduleName = "NetworkDetect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chengsc/Documents/git_imgo/NetworkDetect/NetworkDetect/Detector/DetectorPolicy.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  uuid = "132B20DB-09C9-48AE-898A-601C560FF2AA - 5dbe5eebf3b3ae6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[DetectorPolicy startDetectTrigger]_block_invoke"
+                  moduleName = "NetworkDetect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chengsc/Documents/git_imgo/NetworkDetect/NetworkDetect/Detector/DetectorPolicy.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
