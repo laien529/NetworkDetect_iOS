@@ -85,6 +85,8 @@ NSInteger BatchSize = 5;
 
 - (void)preprocessInputs:(id<NetworkMetrics>)metrics {
     
+    NSAssert([metrics conformsToProtocol:@protocol(NetworkMetrics)], @"data did not conformsToProtocol NetworkMetrics");
+    
     [thp_batch addObject:metrics];
     
     if (metrics.time_HTTPRtt > 0 ) {

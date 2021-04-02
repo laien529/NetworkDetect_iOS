@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "DetectDataProviderProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MetricsModel : NSObject
+@interface MetricsModel : NSObject<NetworkMetrics>
 
 @property(nonatomic, strong) NSString *domainIP;
 @property(nonatomic, strong) NSString *url;

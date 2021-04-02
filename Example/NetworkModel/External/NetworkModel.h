@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MetricsModel.h"
+#import "NetDetector.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
-typedef void(^MetricsBlock)(MetricsModel* metrics);
+typedef void(^MetricsBlock)(id<NetworkMetrics> metrics);
 
 
-@interface NetworkModel : NSObject
+@interface NetworkModel : NSObject<DetectDataProviderProtocol>
 
 @property(nonatomic, copy) MetricsBlock metricsBlock;
 

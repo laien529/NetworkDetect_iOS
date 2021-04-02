@@ -8,7 +8,7 @@
 
 #import "NetworkModel.h"
 #import "AFNetworking.h"
-
+#import "MetricsModel.h"
 
 @interface NetworkModel () {
     AFURLSessionManager *_manager;
@@ -168,5 +168,9 @@
     } @finally {
         
     }
+}
+
+- (void)setupMetricsCallBack:(void (^)(id<NetworkMetrics> _Nonnull))metricsCallback {
+    _metricsBlock = metricsCallback;
 }
 @end
