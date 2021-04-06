@@ -7,16 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NetDetector.h"
+#import "MetricsModel.h"
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 
-typedef void(^MetricsBlock)(id<NetworkMetrics> metrics);
+
+@protocol NetworkModelActionDelegate <NSObject>
+
+- (void)receiveMetricsCallBack:(id<NetworkMetrics>) metrics;
+
+@end
 
 
-@interface NetworkModel : NSObject<DetectDataProviderProtocol>
+@interface NetworkModel : NSObject
 
-@property(nonatomic, copy) MetricsBlock metricsBlock;
+@property(nonatomic, weak) id<NetworkModelActionDelegate> delegate;
 
 + (instancetype)sharedModel;
 

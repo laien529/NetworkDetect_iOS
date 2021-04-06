@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DetectDataProviderProtocol.h"
 #import "DetectorPolicy.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NetDetector : NSObject
 
 @property(nonatomic, weak)id<NetworkDetectorObserverDelegate> observer;
-@property(nonatomic, weak)id<DetectDataProviderProtocol> dataProvider;
 
 + (instancetype)sharedDetector;
 - (void)registService:(id)observer;

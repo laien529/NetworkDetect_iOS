@@ -7,11 +7,12 @@
 //
 
 #import "NetDetector.h"
+#import "NetworkModel.h"
 
 NSString * const serviceName = @"NetworkDetect";
 NSInteger BatchSize = 5;
 
-@interface NetDetector () {
+@interface NetDetector ()<NetworkModelActionDelegate> {
     NSMutableDictionary *observersMap;
     NSMutableArray *thp_batch;
 }
@@ -35,9 +36,8 @@ NSInteger BatchSize = 5;
         observersMap = [[NSMutableDictionary alloc] init];
         thp_batch = [[NSMutableArray alloc] init];
         __weak typeof(self) weakSelf = self;
-        [self.dataProvider setupMetricsCallBack:^(id<NetworkMetrics> _Nonnull metrics) {
-            [weakSelf preprocessInputs:metrics];
-        }];
+        [NetworkModel sharedModel].delegate = self;
+        
         [[DetectorPolicy sharedPolicy] setTimerHeartbeat:^(NSTimeInterval interval) {
             [weakSelf.observer detectTimerHeartBeat:interval];
         }];
@@ -104,6 +104,10 @@ NSInteger BatchSize = 5;
         [[DetectorPolicy sharedPolicy] inputThroughput_down:batch_down_tp];
         [thp_batch removeAllObjects];
     }
+}
+
+- (void)receiveMetricsCallBack:(nonnull id<NetworkMetrics>)metrics {
+    [self preprocessInputs:metrics];
 }
 
 @end

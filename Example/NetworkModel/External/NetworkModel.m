@@ -8,9 +8,10 @@
 
 #import "NetworkModel.h"
 #import "AFNetworking.h"
-#import "MetricsModel.h"
+
 
 @interface NetworkModel () {
+
     AFURLSessionManager *_manager;
 }
 
@@ -160,8 +161,8 @@
         if (transactionMetrics.requestStartDate.timeIntervalSince1970 > 0 && transactionMetrics.connectEndDate.timeIntervalSince1970 > 0) {
             t2 = [transactionMetrics.requestStartDate timeIntervalSinceDate:transactionMetrics.connectEndDate];
         }
-        if (_metricsBlock) {
-            _metricsBlock(metricsModel);
+        if (_delegate && [_delegate respondsToSelector:@selector(receiveMetricsCallBack:)]) {
+            [_delegate receiveMetricsCallBack:metricsModel];
         }
     } @catch (NSException *exception) {
         
@@ -170,7 +171,4 @@
     }
 }
 
-- (void)setupMetricsCallBack:(void (^)(id<NetworkMetrics> _Nonnull))metricsCallback {
-    _metricsBlock = metricsCallback;
-}
 @end
