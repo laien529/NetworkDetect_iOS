@@ -39,11 +39,17 @@ NSInteger BatchSize = 5;
         [NetworkModel sharedModel].delegate = self;
         
         [[DetectorPolicy sharedPolicy] setTimerHeartbeat:^(NSTimeInterval interval) {
-            [weakSelf.observer detectTimerHeartBeat:interval];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (weakSelf.observer) {
+                    [weakSelf.observer detectTimerHeartBeat:interval];
+                }
+            });
         }];
         [[DetectorPolicy sharedPolicy] setDetectResultBlock:^(NetStatus *status) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.observer statusDidChanged:status];
+                if (weakSelf.observer) {
+                    [weakSelf.observer statusDidChanged:status];
+                }
             });
         }];
         [[DetectorPolicy sharedPolicy] startDetectTrigger];
